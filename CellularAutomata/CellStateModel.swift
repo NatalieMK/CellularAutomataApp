@@ -7,13 +7,6 @@
 
 import Foundation
 
-struct Rules {
-    func rule30(cell: Cell) -> Bool{
-        let state = cell.leftCellState.intValue ^ (cell.currentCellState || cell.rightCellState).intValue
-        return (state != 0)
-    }
-}
-
 struct Cell {
     // Default 0 cell
     var leftCellState: Bool = false
@@ -21,38 +14,26 @@ struct Cell {
     var currentCellState: Bool = false
     var upcomingCellState: Bool? = nil
     
-    func getUpcomingCellState() -> Bool{
-        let state = leftCellState.intValue ^ (currentCellState || rightCellState).intValue
-        return (state != 0)
+    // Determine cells upcoming state conforming to rule
+    func determineUpcomingCellState(rule: (Cell) -> Bool) -> Bool{
+        return rule(self)
+    }
+    
+    // Update cell state to upcoming state
+    mutating func updateCell() {
+        currentCellState = upcomingCellState ?? currentCellState
     }
 }
 
 struct Pattern {
     var cells: [Cell] = [Cell()]
     
-    // Pattern will be started from single 0 cell
-
-    mutating func determinePattern(){
-        
-        // Added "empty cell" padding on each end of the cell array. This allows the pattern to continue indefinitely without risk of index out of bounds
-        
-        cells.insert(Cell(leftCellState: false, rightCellState: false, currentCellState: false, upcomingCellState: false), at: 0)
-        
-        cells.append(Cell(leftCellState: false, rightCellState: false, currentCellState: false, upcomingCellState: false))
-        
-        // Index of the last non-padding cell
-        let lastSignificantDigit = cells.count - 2
-        
-        
-        for index in 1...lastSignificantDigit{
-            cells[index].leftCellState = cells[index - 1].currentCellState
-            cells[index].rightCellState = cells[index + 1].currentCellState
-            cells[index].upcomingCellState = cells[index].getUpcomingCellState()
+    // Add empty cells to each side of array. Helpful for keeping a consistent array count.
+    mutating func padPattern(count: Int){
+        while cells.count < (count * 2 + 3) {
+            cells.append(Cell())
+            cells.insert(Cell(), at: 0)
         }
-        
-        // Remove padding cells
-        cells.remove(at: 0)
-        cells.removeLast()
     }
     
     // Return binary String representation of the current pattern array.
@@ -64,12 +45,44 @@ struct Pattern {
         return returnString
     }
     
+    // updatePattern without changing total number of cells, useful when pattern is already padded
+    mutating func updatePattern(rule: (Cell) -> Bool){
+        cells.insert(Cell(leftCellState: false, rightCellState: false, currentCellState: false, upcomingCellState: false), at: 0)
+        cells.append(Cell(leftCellState: false, rightCellState: false, currentCellState: false, upcomingCellState: false))
+        let lastSignificantDigit = cells.count - 2
+        for index in 1...lastSignificantDigit{
+            cells[index].leftCellState = cells[index - 1].currentCellState
+            cells[index].rightCellState = cells[index + 1].currentCellState
+            cells[index].upcomingCellState = cells[index].determineUpcomingCellState(rule: rule)
+        }
+        for i in 0..<cells.count{
+            cells[i].updateCell()
+        }
+        //Remove padding cells
+        cells.remove(at: 0)
+        cells.removeLast()
+    }
+    
     // Advance pattern, all cells updated to their next cell state
-    mutating func advancePattern(){
-        determinePattern()
+    // Advances pattern in a step-wise function, without need for initial padding
+    mutating func advancePattern(rule: (Cell) -> Bool){
+        cells.insert(Cell(leftCellState: false, rightCellState: false, currentCellState: false, upcomingCellState: false), at: 0)
+        cells.append(Cell(leftCellState: false, rightCellState: false, currentCellState: false, upcomingCellState: false))
+        let lastSignificantDigit = cells.count - 2
+        for index in 1...lastSignificantDigit{
+            cells[index].leftCellState = cells[index - 1].currentCellState
+            cells[index].rightCellState = cells[index + 1].currentCellState
+            cells[index].upcomingCellState = cells[index].determineUpcomingCellState(rule: rule)
+        }
         for i in 0..<cells.count{
             cells[i].currentCellState = cells[i].upcomingCellState ?? cells[i].currentCellState
         }
     }
     
+    // Included for easier unit testing
+    func rule30(cell: Cell) -> Bool{
+        let state = cell.leftCellState.intValue ^ (cell.currentCellState || cell.rightCellState).intValue
+        return (state != 0)
+    }
+
 }

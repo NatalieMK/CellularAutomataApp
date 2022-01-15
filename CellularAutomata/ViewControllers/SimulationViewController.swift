@@ -8,13 +8,12 @@
 import UIKit
 
 
-class ViewController: UIViewController{
+class SimulationViewController: UIViewController{
     
     // ConfigureController variables
     var positiveColor: UIColor!
     var negativeColor: UIColor!
     var rounds: Int!
-    
     
     var ruleControl = RuleController()
     var pattern = Pattern()
@@ -54,11 +53,11 @@ class ViewController: UIViewController{
     func formatSimulator(){
         patterns = []
         let simView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        pattern = ruleControl.padPattern(pattern: Pattern(), count: rounds)
-        pattern = ruleControl.markPattern(pattern: pattern, markedIndex: pattern.cells.count.middleValue)
+        pattern.padPattern(count: rounds)
+        pattern = ruleControl.markPatternAtIndex(pattern: pattern, markedIndex: pattern.cells.count.middleValue)
         if (rounds != 0){
         for i in 0...(rounds - 1) {
-            patterns.append(ruleControl.advanceByNumberOfStates(count: i, pattern: pattern))
+            patterns.append(ruleControl.updateByNumberOfStates(count: i, pattern: pattern, rule: ruleControl.rule30(cell:)))
         }
         }
         
@@ -72,7 +71,7 @@ class ViewController: UIViewController{
     }
 }
 
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+extension SimulationViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pattern.cells.count
     }
@@ -107,7 +106,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
     }
 }
 
-extension ViewController: ConfigureViewControllerDelegate {
+extension SimulationViewController: ConfigureViewControllerDelegate {
     func didSelectColor(pColor: UIColor, nColor: UIColor) {
         positiveColor = pColor
         negativeColor = nColor
@@ -120,8 +119,4 @@ extension ViewController: ConfigureViewControllerDelegate {
     func didTapCreate() {
         formatSimulator()
     }
-    
 }
-
-
-

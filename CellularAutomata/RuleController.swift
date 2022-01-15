@@ -6,32 +6,31 @@
 //
 
 import Foundation
+import UIKit
 
 public class RuleController {
     
     var pattern = Pattern()
     
-    func advanceByNumberOfStates(count: Int, pattern: Pattern) -> Pattern{
+    // Rule functions
+    func rule30(cell: Cell) -> Bool{
+        let state = cell.leftCellState.intValue ^ (cell.currentCellState || cell.rightCellState).intValue
+        return (state != 0)
+    }
+    
+    // Update pattern count number of times according to entered rule
+    func updateByNumberOfStates(count: Int, pattern: Pattern, rule: (Cell) -> Bool) -> Pattern{
         var pat = pattern
-
-        for i in 0...count {
-            pat.advancePattern()
+        for _ in 0...count {
+            pat.updatePattern(rule: rule)
         }
         return pat
     }
     
-    func markPattern(pattern: Pattern, markedIndex: Int) -> Pattern {
+    // Choose cell to "mark" positive at index
+    func markPatternAtIndex(pattern: Pattern, markedIndex: Int) -> Pattern {
         var pat = pattern
         pat.cells[markedIndex] = Cell(leftCellState: false, rightCellState: false, currentCellState: true, upcomingCellState: nil)
-        return pat
-    }
-    
-    func padPattern(pattern: Pattern, count: Int) -> Pattern {
-        var pat = Pattern()
-        while pat.cells.count < (count * 2 + 3) {
-            pat.cells.append(Cell())
-            pat.cells.insert(Cell(), at: 0)
-        }
         return pat
     }
     

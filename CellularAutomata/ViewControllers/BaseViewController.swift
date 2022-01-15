@@ -9,7 +9,7 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
-    var patternView = ViewController()
+    var patternView = SimulationViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()

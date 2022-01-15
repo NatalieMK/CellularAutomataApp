@@ -101,8 +101,6 @@ class ConfigureViewController: UIViewController, UIColorPickerViewControllerDele
         negative.delegate = self
         present(negative, animated: true)
     }
-
-
 }
 
 extension ConfigureViewController: UIPickerViewDelegate, UIPickerViewDataSource{

@@ -10,8 +10,9 @@
 		391CF776278F9EAD009DF741 /* CellularAutomataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CF775278F9EAD009DF741 /* CellularAutomataTests.swift */; };
 		391CF77D278F9EEC009DF741 /* CellStateModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CF77C278F9EEC009DF741 /* CellStateModelTests.swift */; };
 		391CF77F2790BF74009DF741 /* SimpleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CF77E2790BF74009DF741 /* SimpleCollectionViewCell.swift */; };
-		391CF78327911D97009DF741 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CF78227911D97009DF741 /* ViewController.swift */; };
+		391CF78327911D97009DF741 /* SimulationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CF78227911D97009DF741 /* SimulationViewController.swift */; };
 		391CF78527911DB4009DF741 /* ConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CF78427911DB4009DF741 /* ConfigureViewController.swift */; };
+		391CF78727929365009DF741 /* RuleControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CF78627929365009DF741 /* RuleControllerTests.swift */; };
 		39693412278F5F0800239E9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39693411278F5F0800239E9B /* AppDelegate.swift */; };
 		39693414278F5F0800239E9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39693413278F5F0800239E9B /* SceneDelegate.swift */; };
 		39693419278F5F0800239E9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39693417278F5F0800239E9B /* Main.storyboard */; };
@@ -38,8 +39,9 @@
 		391CF775278F9EAD009DF741 /* CellularAutomataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularAutomataTests.swift; sourceTree = "<group>"; };
 		391CF77C278F9EEC009DF741 /* CellStateModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellStateModelTests.swift; sourceTree = "<group>"; };
 		391CF77E2790BF74009DF741 /* SimpleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCollectionViewCell.swift; sourceTree = "<group>"; };
-		391CF78227911D97009DF741 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		391CF78227911D97009DF741 /* SimulationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationViewController.swift; sourceTree = "<group>"; };
 		391CF78427911DB4009DF741 /* ConfigureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureViewController.swift; sourceTree = "<group>"; };
+		391CF78627929365009DF741 /* RuleControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleControllerTests.swift; sourceTree = "<group>"; };
 		3969340E278F5F0800239E9B /* CellularAutomata.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CellularAutomata.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39693411278F5F0800239E9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39693413278F5F0800239E9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			children = (
 				391CF775278F9EAD009DF741 /* CellularAutomataTests.swift */,
 				391CF77C278F9EEC009DF741 /* CellStateModelTests.swift */,
+				391CF78627929365009DF741 /* RuleControllerTests.swift */,
 			);
 			path = CellularAutomataTests;
 			sourceTree = "<group>";
@@ -136,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				39693427278F5F8D00239E9B /* BaseViewController.swift */,
-				391CF78227911D97009DF741 /* ViewController.swift */,
+				391CF78227911D97009DF741 /* SimulationViewController.swift */,
 				391CF78427911DB4009DF741 /* ConfigureViewController.swift */,
 			);
 			path = ViewControllers;
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				391CF78727929365009DF741 /* RuleControllerTests.swift in Sources */,
 				391CF776278F9EAD009DF741 /* CellularAutomataTests.swift in Sources */,
 				391CF77D278F9EEC009DF741 /* CellStateModelTests.swift in Sources */,
 			);
@@ -255,7 +259,7 @@
 				39693428278F5F8D00239E9B /* BaseViewController.swift in Sources */,
 				391CF78527911DB4009DF741 /* ConfigureViewController.swift in Sources */,
 				3969342F278F6A9B00239E9B /* Extensions.swift in Sources */,
-				391CF78327911D97009DF741 /* ViewController.swift in Sources */,
+				391CF78327911D97009DF741 /* SimulationViewController.swift in Sources */,
 				39693412278F5F0800239E9B /* AppDelegate.swift in Sources */,
 				3969342D278F651D00239E9B /* CellStateModel.swift in Sources */,
 				39693414278F5F0800239E9B /* SceneDelegate.swift in Sources */,
