@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "1FBF0233-6558-4C6C-BCC5-AAEA7558D628"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4333BFC-3ECF-4E8C-87EB-522960A33115"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Rule30AppTests/CellStateModelTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "CellStateModelTests"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "E4333BFC-3ECF-4E8C-87EB-522960A33115 - 968c3cd77685facc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rule30AppTests.CellStateModelTests.pattern.getter : Swift.Optional&lt;Rule30App.Pattern&gt;"
+                  moduleName = "Rule30AppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nataliekim/Desktop/Rule30App/Rule30AppTests/CellStateModelTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "90">
+               </Location>
+               <Location
+                  uuid = "E4333BFC-3ECF-4E8C-87EB-522960A33115 - a85827959ef406b0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rule30AppTests.CellStateModelTests.pattern.setter : Swift.Optional&lt;Rule30App.Pattern&gt;"
+                  moduleName = "Rule30AppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nataliekim/Desktop/Rule30App/Rule30AppTests/CellStateModelTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  uuid = "E4333BFC-3ECF-4E8C-87EB-522960A33115 - a1f8c29ac2b7110"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rule30AppTests.CellStateModelTests.pattern.modify : Swift.Optional&lt;Rule30App.Pattern&gt;"
+                  moduleName = "Rule30AppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nataliekim/Desktop/Rule30App/Rule30AppTests/CellStateModelTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  uuid = "E4333BFC-3ECF-4E8C-87EB-522960A33115 - a0c18f79cc7646"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rule30AppTests.CellStateModelTests.pattern.modify : Swift.Optional&lt;Rule30App.Pattern&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Rule30AppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nataliekim/Desktop/Rule30App/Rule30AppTests/CellStateModelTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  uuid = "E4333BFC-3ECF-4E8C-87EB-522960A33115 - de651933dc42595a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rule30AppTests.CellStateModelTests.init(invocation: Swift.Optional&lt;__C.NSInvocation&gt;) -&gt; Rule30AppTests.CellStateModelTests"
+                  moduleName = "Rule30AppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nataliekim/Desktop/Rule30App/Rule30AppTests/CellStateModelTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "E4333BFC-3ECF-4E8C-87EB-522960A33115 - 872b439de5ff733a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rule30AppTests.CellStateModelTests.init(selector: ObjectiveC.Selector) -&gt; Rule30AppTests.CellStateModelTests"
+                  moduleName = "Rule30AppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nataliekim/Desktop/Rule30App/Rule30AppTests/CellStateModelTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "E4333BFC-3ECF-4E8C-87EB-522960A33115 - 83f4d16a52b68b84"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Rule30AppTests.CellStateModelTests.init() -&gt; Rule30AppTests.CellStateModelTests"
+                  moduleName = "Rule30AppTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nataliekim/Desktop/Rule30App/Rule30AppTests/CellStateModelTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
