@@ -28,6 +28,14 @@ class BaseViewController: UIViewController {
         super.viewDidLayoutSubviews()
     }
     
+    override var shouldAutorotate: Bool{
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
+    
 
 
 }

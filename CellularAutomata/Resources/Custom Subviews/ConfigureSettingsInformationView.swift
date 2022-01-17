@@ -25,23 +25,35 @@ public class ConfigureSettingsInformationView: UIViewController {
     
     let ruleLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let primaryColorLabel: UILabel = {
         let label = UILabel()
         label.text = "Primary color: "
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let secondaryColorLabel: UILabel = {
         let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Secondary color: "
         return label
     }()
     
-    let primarySwatch = UILabel()
-    let secondarySwatch = UILabel()
+    let primarySwatch: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let secondarySwatch: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     public func setUp(){
         view.backgroundColor = .lightGray
@@ -64,12 +76,16 @@ public class ConfigureSettingsInformationView: UIViewController {
 
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        ruleLabel.frame = CGRect(x: 10, y: 10, width: view.width, height: view.height/4)
-        primaryColorLabel.frame = CGRect(x: 10, y: view.height/4 + 20, width: view.width/2 - 10, height: view.height/4)
-        secondaryColorLabel.frame = CGRect(x: view.width/2, y: primaryColorLabel.frame.minY, width: view.width/2 - 10, height: view.height/4)
-        primarySwatch.frame = CGRect(x: view.width/6, y: view.height/2, width: view.width/5, height: view.width/5)
-        secondarySwatch.frame = CGRect(x: view.width * 4/6, y: view.height/2, width: view.width/5, height: view.width/5)
+        view.autoLayoutBasedOnView(view: ruleLabel, topOffset: 10, bottomOffset: nil, leadingOffset: 10, trailingOffset: 10)
+        view.autoLayoutBasedOnAnchors(view: primaryColorLabel, newTopAnchor: ruleLabel.bottomAnchor, newBottomAnchor: nil, newLeftAnchor: ruleLabel.leftAnchor, newRightAnchor: ruleLabel.rightAnchor, padding: 10)
+        view.autoLayoutBasedOnAnchors(view: secondaryColorLabel, newTopAnchor: ruleLabel.bottomAnchor, newBottomAnchor: nil, newLeftAnchor: view.centerXAnchor, newRightAnchor: nil, padding: 10)
         
+        view.autoLayoutBasedOnView(view: primarySwatch, topOffset: 100, bottomOffset: 10, leadingOffset: nil, trailingOffset: nil)
+        view.autoLayoutBasedOnAnchors(view: primarySwatch, newTopAnchor: primaryColorLabel.bottomAnchor, newBottomAnchor: nil, newLeftAnchor: nil, newRightAnchor: view.centerXAnchor, padding: 10)
+        primarySwatch.widthAnchor.constraint(equalTo: primarySwatch.heightAnchor).isActive = true
         
+        view.autoLayoutBasedOnView(view: secondarySwatch, topOffset: 100, bottomOffset: 10, leadingOffset: nil, trailingOffset: 10)
+        view.autoLayoutBasedOnAnchors(view: secondarySwatch, newTopAnchor: secondaryColorLabel.bottomAnchor, newBottomAnchor: nil, newLeftAnchor: nil, newRightAnchor: nil, padding: 10)
+        secondarySwatch.widthAnchor.constraint(equalTo: secondarySwatch.heightAnchor).isActive = true
     }
 }

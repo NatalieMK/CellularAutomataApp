@@ -36,6 +36,7 @@ class SimulationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openConfig))
         configureLabel.attributedText = NSAttributedString(string: "Create Simulation ->", attributes: fontAttributes)
         formatSimulator()
@@ -55,10 +56,17 @@ class SimulationViewController: UIViewController {
         present(configure, animated: true)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    func layoutViewControllers(){
+        configureInformation.view.translatesAutoresizingMaskIntoConstraints = false
+        view.autoLayoutBasedOnView(view: configureInformation.view, topOffset: 100, bottomOffset: nil, leadingOffset: 10, trailingOffset: 10)
+        
+        configureInformation.view.heightAnchor.constraint(equalToConstant: 150).isActive = true
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         configureLabel.frame = CGRect(x: 140, y: 20, width: 300, height: 100)
-        configureInformation.view.frame = CGRect(x: 10, y: 100, width: view.width - 20, height: view.width - 100)
+        layoutViewControllers()
     }
     
     func formatSimulator(){
@@ -70,13 +78,14 @@ class SimulationViewController: UIViewController {
         simView.dataSource = self
         simView.delegate = self
         simView.backgroundColor = negativeColor
-        simView.frame = CGRect(x: 10, y: view.height/2, width: view.width - 20, height: view.width - 30)
+        simView.frame = CGRect(x: 10, y: 300, width: view.width - 20, height: view.width - 30)
+        simView.translatesAutoresizingMaskIntoConstraints = false
+
         configureLabel.isHidden = true
         configureInformation.primaryColor = positiveColor
         configureInformation.secondaryColor = negativeColor
         configureInformation.ruleLabelText = ruleName
         configureInformation.setUp()
-
         view.addSubview(simView)
     }
 }
@@ -131,5 +140,6 @@ extension SimulationViewController: ConfigureViewControllerDelegate {
         formatSimulator()
     }
 }
+
 
 
