@@ -45,14 +45,39 @@ extension UIView {
     }
     
     // Custom extension to make AutoLayout more manageable
-    public func autoLayoutView(view: UIView, topOffset: CGFloat?, bottomOffset: CGFloat?, leadingOffset: CGFloat?, trailingOffset: CGFloat?){
+    public func autoLayoutBasedOnView(view: UIView, topOffset: CGFloat?, bottomOffset: CGFloat?, leadingOffset: CGFloat?, trailingOffset: CGFloat?){
         var constraints = [NSLayoutConstraint]()
-        constraints.append(view.topAnchor.constraint(equalTo: self.topAnchor, constant: topOffset ?? 0))
+        if topOffset != nil{
+            constraints.append(view.topAnchor.constraint(equalTo: self.topAnchor, constant: topOffset ?? 0))
+        }
+        if leadingOffset != nil {
         constraints.append(view.leftAnchor.constraint(equalTo: self.leftAnchor, constant: leadingOffset ?? 0))
+        }
+        if trailingOffset != nil {
         constraints.append(view.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -(trailingOffset?.magnitude ?? 0)))
+        }
+        if bottomOffset != nil {
         constraints.append(view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -(bottomOffset?.magnitude ?? 0)))
-        
+        }
         NSLayoutConstraint.activate(constraints)
+    }
+    
+    public func autoLayoutBasedOnAnchors(view: UIView, newTopAnchor: NSLayoutYAxisAnchor?, newBottomAnchor: NSLayoutYAxisAnchor?, newLeftAnchor: NSLayoutXAxisAnchor?, newRightAnchor: NSLayoutXAxisAnchor?, padding: CGFloat?){
+        var constraints = [NSLayoutConstraint]()
+        if newTopAnchor != nil {
+            constraints.append(view.topAnchor.constraint(equalTo: newTopAnchor!, constant: padding ?? 0))
+        }
+        if newLeftAnchor != nil {
+            constraints.append(view.leftAnchor.constraint(equalTo: newLeftAnchor!, constant: padding ?? 0))
+        }
+        if newBottomAnchor != nil {
+            constraints.append(view.bottomAnchor.constraint(equalTo: newBottomAnchor!, constant: -(padding ?? 0)))
+        }
+        if newRightAnchor != nil {
+            constraints.append(view.rightAnchor.constraint(equalTo: newRightAnchor!, constant: -(padding ?? 0)))
+        }
+        NSLayoutConstraint.activate(constraints)
+        
     }
 }
     

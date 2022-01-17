@@ -22,7 +22,6 @@ class BaseViewController: UIViewController {
         addChild(patternNav)
         view.addSubview(patternNav.view)
         patternNav.didMove(toParent: self)
-       
     }
     
     override func viewDidLayoutSubviews() {

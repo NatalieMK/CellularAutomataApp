@@ -44,23 +44,23 @@ class CellStateModelTests: XCTestCase {
     // Testing larger numbers of iteration with known constants
     func testAdvancePatternByTenTimes(){
         pattern.cells = [Cell(leftCellState: false, rightCellState: false, currentCellState: true, upcomingCellState: nil)]
-        pattern.advancePattern(rule: pattern.rule30(cell:)) // 010
-        pattern.advancePattern(rule: pattern.rule30(cell:)) // 01110
-        pattern.advancePattern(rule: pattern.rule30(cell:)) // 0110010
-        pattern.advancePattern(rule: pattern.rule30(cell:)) // 011011110
-        pattern.advancePattern(rule: pattern.rule30(cell:)) // 01100100010
-        pattern.advancePattern(rule: pattern.rule30(cell:)) // 0110111101110
-        pattern.advancePattern(rule: pattern.rule30(cell:)) // 011001000010010
-        pattern.advancePattern(rule: pattern.rule30(cell:)) // 01101111001111110
-        pattern.advancePattern(rule: pattern.rule30(cell:)) // 0110010001110000010
-        pattern.advancePattern(rule: pattern.rule30(cell:)) // 011011110110010001110
+        pattern.advancePattern(rule: RuleController().rule30(cell:)) // 010
+        pattern.advancePattern(rule: RuleController().rule30(cell:)) // 01110
+        pattern.advancePattern(rule: RuleController().rule30(cell:)) // 0110010
+        pattern.advancePattern(rule: RuleController().rule30(cell:)) // 011011110
+        pattern.advancePattern(rule: RuleController().rule30(cell:)) // 01100100010
+        pattern.advancePattern(rule: RuleController().rule30(cell:)) // 0110111101110
+        pattern.advancePattern(rule: RuleController().rule30(cell:)) // 011001000010010
+        pattern.advancePattern(rule: RuleController().rule30(cell:)) // 01101111001111110
+        pattern.advancePattern(rule: RuleController().rule30(cell:)) // 0110010001110000010
+        pattern.advancePattern(rule: RuleController().rule30(cell:)) // 011011110110010001110
         XCTAssertEqual(pattern.patternAsString(), "011011110110010001110")
     }
     
     func testAdvancePatternByFiftyTimes(){
         pattern.cells = [Cell(leftCellState: false, rightCellState: false, currentCellState: true, upcomingCellState: nil)]
         for i in 0...50 {
-            pattern.advancePattern(rule: pattern.rule30(cell:))
+            pattern.advancePattern(rule: RuleController().rule30(cell:))
         }
         XCTAssertEqual(pattern.patternAsString(), "0110010000101110010110101001100101000011000010001100100010101100000000110001101110111000010101100110010")
     }

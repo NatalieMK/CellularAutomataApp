@@ -18,12 +18,25 @@ public class RuleController {
         return (state != 0)
     }
     
+    func rule90(cell: Cell) -> Bool{
+        let state = cell.leftCellState.intValue ^ cell.rightCellState.intValue
+        return (state != 0)
+    }
+    
+    func rule110(cell: Cell) -> Bool{
+        let state = (!cell.leftCellState && cell.rightCellState) || ((cell.currentCellState.intValue ^ cell.rightCellState.intValue) != 0)
+        return (state.intValue != 0)
+    }
+    
     // Update pattern count number of times according to entered rule
     func updateByNumberOfStates(count: Int, pattern: Pattern, rule: (Cell) -> Bool) -> Pattern{
         var pat = pattern
-        for _ in 0...count {
+        if count == 0 {
+            return pat
+        } else {
+        for _ in 1...count {
             pat.updatePattern(rule: rule)
-        }
+        }}
         return pat
     }
     
