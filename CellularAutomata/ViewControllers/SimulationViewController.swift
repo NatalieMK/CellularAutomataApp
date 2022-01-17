@@ -10,8 +10,8 @@ import UIKit
 class SimulationViewController: UIViewController {
     
     // ConfigureController variables
-    var positiveColor: UIColor!
-    var negativeColor: UIColor!
+    var positiveColor = UIColor.lightGray
+    var negativeColor = UIColor.lightGray
     var ruleName: String = ""
 
     var ruleControl = RuleController()
@@ -22,9 +22,14 @@ class SimulationViewController: UIViewController {
     let configureController = ConfigureViewController()
     let configureInformation = ConfigureSettingsInformationView()
     
+    let fontAttributes: [NSAttributedString.Key : Any] = [
+        .font: UIFont(name: "KohinoorBangla-Semibold", size: 18),
+        .backgroundColor: UIColor.clear,
+        .foregroundColor: UIColor.gray
+    ]
+    
     let configureLabel: UILabel = {
         let label = UILabel()
-        label.text = "Create Simulation ->"
         return label
     }()
 
@@ -32,6 +37,9 @@ class SimulationViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openConfig))
+        configureLabel.attributedText = NSAttributedString(string: "Create Simulation ->", attributes: fontAttributes)
+        formatSimulator()
+        configureLabel.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -68,7 +76,7 @@ class SimulationViewController: UIViewController {
         configureInformation.secondaryColor = negativeColor
         configureInformation.ruleLabelText = ruleName
         configureInformation.setUp()
-        
+
         view.addSubview(simView)
     }
 }
@@ -120,7 +128,8 @@ extension SimulationViewController: ConfigureViewControllerDelegate {
 
     func didTapCreate(patternArray: [Pattern]) {
         patterns = patternArray
-        print(patterns)
         formatSimulator()
     }
 }
+
+

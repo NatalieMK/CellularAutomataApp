@@ -18,6 +18,7 @@ class StandbyView: UIVisualEffectView {
     
     let label: UILabel = {
         let label = UILabel()
+        label.textColor = .darkGray
         return label
     }()
     
@@ -38,6 +39,7 @@ class StandbyView: UIVisualEffectView {
     func setUp(){
         contentView.addSubview(vibrancy)
         contentView.addSubview(activitySpinner)
+        contentView.addSubview(label)
         label.text = text
         activitySpinner.startAnimating()
     }

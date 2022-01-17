@@ -25,7 +25,6 @@ public class ConfigureSettingsInformationView: UIViewController {
     
     let ruleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Rule in use: "
         return label
     }()
     
@@ -46,9 +45,9 @@ public class ConfigureSettingsInformationView: UIViewController {
     
     public func setUp(){
         view.backgroundColor = .lightGray
-        ruleLabel.attributedText = NSAttributedString(string: ruleLabel.text! + ruleLabelText, attributes: fontAttributes)
-        primaryColorLabel.attributedText = NSAttributedString(string: primaryColorLabel.text! + primaryColorText, attributes: fontAttributes)
-        secondaryColorLabel.attributedText = NSAttributedString(string: secondaryColorLabel.text! + secondaryColorText, attributes: fontAttributes)
+        ruleLabel.attributedText = NSAttributedString(string: "Rule in use: " + ruleLabelText, attributes: fontAttributes)
+        secondaryColorLabel.attributedText = NSAttributedString(string: secondaryColorLabel.text!, attributes: fontAttributes)
+        primaryColorLabel.attributedText = NSAttributedString(string: primaryColorLabel.text!, attributes: fontAttributes)
         primarySwatch.backgroundColor = primaryColor
         secondarySwatch.backgroundColor = secondaryColor
         view.addSubview(secondarySwatch)
@@ -62,6 +61,7 @@ public class ConfigureSettingsInformationView: UIViewController {
         super.viewWillAppear(animated)
     }
     
+
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         ruleLabel.frame = CGRect(x: 10, y: 10, width: view.width, height: view.height/4)
@@ -69,5 +69,7 @@ public class ConfigureSettingsInformationView: UIViewController {
         secondaryColorLabel.frame = CGRect(x: view.width/2, y: primaryColorLabel.frame.minY, width: view.width/2 - 10, height: view.height/4)
         primarySwatch.frame = CGRect(x: view.width/6, y: view.height/2, width: view.width/5, height: view.width/5)
         secondarySwatch.frame = CGRect(x: view.width * 4/6, y: view.height/2, width: view.width/5, height: view.width/5)
+        
+        
     }
 }

@@ -51,10 +51,19 @@ class RuleControllerTests: XCTestCase {
         XCTAssertEqual(pattern.patternAsString(), "010100000000000001010")
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
+    func testHighNumberRule30Performance() {
+        pattern = ruleControl.markPatternAtIndex(pattern: pattern, markedIndex: 1)
+        pattern.padPattern(count: 99)
         self.measure {
-            // Put the code you want to measure the time of here.
+            pattern = ruleControl.updateByNumberOfStates(count: 99, pattern: pattern, rule: ruleControl.rule30(cell:))
+        }
+    }
+    
+    func testHighNumberRule90Performance() {
+        pattern = ruleControl.markPatternAtIndex(pattern: pattern, markedIndex: 1)
+        pattern.padPattern(count: 99)
+        self.measure {
+            pattern = ruleControl.updateByNumberOfStates(count: 99, pattern: pattern, rule: ruleControl.rule90(cell:))
         }
     }
 

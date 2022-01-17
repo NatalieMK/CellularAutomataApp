@@ -99,9 +99,18 @@
 		391CF78D2794FE64009DF741 /* Custom Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				391CF7892794B195009DF741 /* StandbyView.swift */,
 				391CF78B2794FE35009DF741 /* ConfigureSettingsInformationView.swift */,
 			);
 			path = "Custom Subviews";
+			sourceTree = "<group>";
+		};
+		391CF78E2795D707009DF741 /* Custom CollectionView Cells */ = {
+			isa = PBXGroup;
+			children = (
+				391CF77E2790BF74009DF741 /* SimpleCollectionViewCell.swift */,
+			);
+			path = "Custom CollectionView Cells";
 			sourceTree = "<group>";
 		};
 		39693405278F5F0800239E9B = {
@@ -125,13 +134,11 @@
 		39693410278F5F0800239E9B /* CellularAutomata */ = {
 			isa = PBXGroup;
 			children = (
-				39693429278F5F9900239E9B /* ViewControllers */,
-				39693425278F5F1400239E9B /* Resources */,
-				39693411278F5F0800239E9B /* AppDelegate.swift */,
-				39693413278F5F0800239E9B /* SceneDelegate.swift */,
-				3969341F278F5F0A00239E9B /* Info.plist */,
 				3969342A278F612900239E9B /* RuleController.swift */,
 				3969342C278F651D00239E9B /* CellStateModel.swift */,
+				39693429278F5F9900239E9B /* ViewControllers */,
+				39693425278F5F1400239E9B /* Resources */,
+				3969341F278F5F0A00239E9B /* Info.plist */,
 			);
 			path = CellularAutomata;
 			sourceTree = "<group>";
@@ -139,11 +146,13 @@
 		39693425278F5F1400239E9B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				39693411278F5F0800239E9B /* AppDelegate.swift */,
+				39693413278F5F0800239E9B /* SceneDelegate.swift */,
+				391CF78D2794FE64009DF741 /* Custom Subviews */,
+				391CF78E2795D707009DF741 /* Custom CollectionView Cells */,
 				391CF7882794B156009DF741 /* Storyboards */,
 				39693426278F5F2000239E9B /* UI */,
 				3969342E278F6A9B00239E9B /* Extensions.swift */,
-				391CF77E2790BF74009DF741 /* SimpleCollectionViewCell.swift */,
-				391CF7892794B195009DF741 /* StandbyView.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -151,7 +160,6 @@
 		39693426278F5F2000239E9B /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				391CF78D2794FE64009DF741 /* Custom Subviews */,
 				3969341A278F5F0A00239E9B /* Assets.xcassets */,
 			);
 			path = UI;

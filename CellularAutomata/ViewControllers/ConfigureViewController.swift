@@ -73,6 +73,16 @@ class ConfigureViewController: UIViewController, UIColorPickerViewControllerDele
         return label
     }()
     
+    let warningLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Note: Larger numbers of rounds may take longer to generate."
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.textColor = .darkGray
+        return label
+    }()
+    
     let roundsPicker: UIPickerView = {
         let picker = UIPickerView()
         picker.backgroundColor = nil
@@ -106,24 +116,30 @@ class ConfigureViewController: UIViewController, UIColorPickerViewControllerDele
         view.addSubview(ruleSegments)
         
         spinner.center = view.center
+        
         spinner.hide()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        warningLabel.frame = CGRect(x: 10, y: spinner.top - 100, width: view.width - 10, height: 100)
         autoLayoutConstraints()
     }
     
     @objc func didTapButton(){
         spinner.show()
+        var rounds = roundsPicker.selectedRow(inComponent: 0)
+        if rounds > 40 {
+            view.addSubview(warningLabel)
+        }
         configureDelegate.didSelectColor(pColor: positive.selectedColor, nColor: negative.selectedColor)
         let ruleIndex = ruleSegments.selectedSegmentIndex
         configureDelegate.didSelectRule(rule: rules[ruleIndex])
-        var rounds = roundsPicker.selectedRow(inComponent: 0)
         DispatchQueue.global().async {
             self.calculatePatterns(rounds: rounds, rule: ruleIndex)
             DispatchQueue.main.async { [self] in
                 self.configureDelegate.didTapCreate(patternArray: self.patterns)
+         
                 dismiss(animated: false, completion: nil)
         }
         }

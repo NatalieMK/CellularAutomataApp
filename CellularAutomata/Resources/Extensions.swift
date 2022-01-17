@@ -21,7 +21,6 @@ extension Int {
     }
 }
 
-
 extension UIView {
     
     // View constants for convienence
@@ -77,7 +76,6 @@ extension UIView {
             constraints.append(view.rightAnchor.constraint(equalTo: newRightAnchor!, constant: -(padding ?? 0)))
         }
         NSLayoutConstraint.activate(constraints)
-        
     }
 }
     
@@ -85,10 +83,7 @@ extension Array {
 
     var middle: Element? {
         guard count != 0 else { return nil }
-
         let middleIndex = (count > 1 ? count - 1 : count) / 2
         return self[middleIndex]
     }
-
-
 }
